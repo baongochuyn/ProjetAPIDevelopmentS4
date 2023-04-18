@@ -1,8 +1,14 @@
-﻿namespace ProjetAPIDevelopmentS4.Models
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
+
+namespace ProjetAPIDevelopmentS4.Models
 {
     public class Vol
     {
-        public int IdVol { get; set; } 
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public int Id { get; set; } 
         public string VilleDepart { get; set; } 
         public string VilleArrivee { get; set; } 
         public DateTime HeureDepart { get; set; } 
