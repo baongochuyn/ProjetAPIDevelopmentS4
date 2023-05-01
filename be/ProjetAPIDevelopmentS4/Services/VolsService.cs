@@ -34,5 +34,8 @@ namespace ProjetAPIDevelopmentS4.Services
 
         public async Task RemoveVolAsync(string id) =>
             await _volsCollection.DeleteOneAsync(x => x.Id == id);
+
+        public async Task<Vol?> CheckVolExist(string id) =>
+                await _volsCollection.Find(x => x.Id==id).FirstOrDefaultAsync();
     }
 }

@@ -12,9 +12,13 @@ namespace ProjetAPIDevelopmentS4.Controllers
     public class ReservationController : Controller
     {
         private readonly ReservationsService _reservationsService;
+        private readonly VolsService _volsService;
 
-        public ReservationController(ReservationsService volsService) =>
-            _reservationsService = volsService;
+        public ReservationController(ReservationsService reversationService, VolsService volsService) {
+            _reservationsService = reversationService;
+            _volsService = volsService;
+
+        }
 
         [HttpGet]
         public async Task<List<Reservation>> Get() =>
@@ -37,8 +41,12 @@ namespace ProjetAPIDevelopmentS4.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Reservation newReservation)
         {
-            await _reservationsService.CreateReservationAsync(newReservation);
+            var volIsExist = await _volsService.CheckVolExist(newReservation.IdVol);
 
+            if (volIsExist is null) {
+               return NotFound();
+            }
+            await _reservationsService.CreateReservationAsync(newReservation);
             return CreatedAtAction(nameof(Get), new { id = newReservation.Id }, newReservation);
         }
 
@@ -47,7 +55,7 @@ namespace ProjetAPIDevelopmentS4.Controllers
         public async Task<IActionResult> Update(string id, Reservation updatedReservation)
         {
             var reservation = await _reservationsService.GetReservationAsync(id);
-
+                        
             if (reservation is null)
             {
                 return NotFound();

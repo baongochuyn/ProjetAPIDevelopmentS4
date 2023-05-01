@@ -37,6 +37,10 @@ namespace ProjetAPIDevelopmentS4.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Client newClient)
         {
+            var clientIsExist = await _clientsService.CheckClientAsync(newClient.FirstName, newClient.LastName);
+            if(clientIsExist is null) {
+                return NotFound();
+            }
             await _clientsService.CreateClientAsync(newClient);
 
             return CreatedAtAction(nameof(Get), new { id = newClient.Id }, newClient);
