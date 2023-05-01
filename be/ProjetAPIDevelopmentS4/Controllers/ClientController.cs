@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetAPIDevelopmentS4.Authorization;
 using ProjetAPIDevelopmentS4.Models;
 using ProjetAPIDevelopmentS4.Services;
 
@@ -7,6 +8,7 @@ namespace ProjetAPIDevelopmentS4.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ClientController : Controller
     {
         private readonly ClientsService _clientsService;
@@ -42,7 +44,7 @@ namespace ProjetAPIDevelopmentS4.Controllers
 
 
         [HttpPut("{id:length(24)}")]
-        public async Task<IActionResult> Update(string id, Client updatedBook)
+        public async Task<IActionResult> Update(string id, Client updatedClient)
         {
             var book = await _clientsService.GetClientAsync(id);
 
@@ -51,9 +53,9 @@ namespace ProjetAPIDevelopmentS4.Controllers
                 return NotFound();
             }
 
-            updatedBook.Id = book.Id;
+            updatedClient.Id = book.Id;
 
-            await _clientsService.UpdateClientAsync(id, updatedBook);
+            await _clientsService.UpdateClientAsync(id, updatedClient);
 
             return NoContent();
         }
@@ -61,9 +63,9 @@ namespace ProjetAPIDevelopmentS4.Controllers
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var book = await _clientsService.GetClientAsync(id);
+            var client = await _clientsService.GetClientAsync(id);
 
-            if (book is null)
+            if (client is null)
             {
                 return NotFound();
             }

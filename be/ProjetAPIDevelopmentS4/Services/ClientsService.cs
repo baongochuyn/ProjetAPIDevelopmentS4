@@ -21,8 +21,8 @@ namespace ProjetAPIDevelopmentS4.Services
             _clientsCollection = mongoDatabase.GetCollection<Client>("Clients");
         }
         public async Task<List<Client>> GetClientAsync() =>
-        await _clientsCollection.Find(_ => true).ToListAsync();
-         
+        await _clientsCollection.Find(_ => true).ToListAsync(); //sélectionne tous les documents
+
         public async Task<Client?> GetClientAsync(string id) =>
         await _clientsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 

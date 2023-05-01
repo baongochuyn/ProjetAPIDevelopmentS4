@@ -8,10 +8,10 @@ namespace ProjetAPIDevelopmentS4.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string? Id { get; set; }
         [BsonElement("NumeroVol")]
-        public int IdVol { get; set; }
+        public string IdVol { get; set; }
         [BsonElement("NumeroClient")]
-        public int IdClient { get; set; }
+        public string IdClient { get; set; }
     }
 }
