@@ -58,9 +58,20 @@ function Clients() {
     };
 
     fetch("https://localhost:7183/api/Client", requestOptions)
-      .then((response) => response.text())
+      .then((response) => {
+        if (response.status === 200) {
+          return response.text();
+        } else {
+          throw new Error("Request failed with status " + response.status);
+        }
+      })
       .then((data) => {
         window.location.href = "http://localhost:3000/clients";
+      })
+      .catch((error) => {
+        console.error(error);
+        // in ra thông báo lỗi
+        alert("client exist déjà !");
       });
   };
 
