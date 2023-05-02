@@ -29,6 +29,7 @@ namespace ProjetAPIDevelopmentS4.Controllers
             if (client is null)
             {
                 return NotFound();
+
             }
 
             return client;
@@ -39,9 +40,14 @@ namespace ProjetAPIDevelopmentS4.Controllers
         {
             var clientIsExist = await _clientsService.CheckClientAsync(newClient.FirstName, newClient.LastName);
             if(clientIsExist is null) {
-                return NotFound();
+                await _clientsService.CreateClientAsync(newClient);
+
             }
-            await _clientsService.CreateClientAsync(newClient);
+            else
+            {
+                return BadRequest("le client exist déjà !");
+            }
+            
 
             return CreatedAtAction(nameof(Get), new { id = newClient.Id }, newClient);
         }
