@@ -40,11 +40,12 @@ function VolForm() {
     };
     fetch(`https://localhost:7183/api/Vol`, requestOptions)
       .then((response) => response.text())
-      .then((data) => {
-        window.location.href = "http://localhost:3000/vols";
-      })
+
       .catch((err) => {
         console.log(err);
+      })
+      .then((data) => {
+        window.location.href = "http://localhost:3000/vols";
       });
   };
   return !authorization ? (

@@ -65,13 +65,15 @@ function Clients() {
           throw new Error("Request failed with status " + response.status);
         }
       })
+
+      .catch((error) => {
+        if (error.message.includes("Request failed with status 400")) {
+          // Nếu response trả về mã lỗi 400
+          alert("Client existe déjà !");
+        }
+      })
       .then((data) => {
         window.location.href = "http://localhost:3000/clients";
-      })
-      .catch((error) => {
-        console.error(error);
-        // in ra thông báo lỗi
-        alert("client exist déjà !");
       });
   };
 

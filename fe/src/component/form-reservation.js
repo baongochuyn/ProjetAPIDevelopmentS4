@@ -14,6 +14,7 @@ function FormReservation() {
   const id = path[2];
 
   const authorization = localStorage.getItem("Authorization");
+  if (!authorization) window.location.href = "http://localhost:3000/";
   const requestOptions = {
     method: "GET",
     headers: {
@@ -25,7 +26,6 @@ function FormReservation() {
   useEffect(() => {
     fetch("https://localhost:7183/api/Client", requestOptions)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           return res.json();
         } else if (res.status === 401) {
@@ -73,11 +73,13 @@ function FormReservation() {
         IdClient: selectedValue,
       }),
     };
-
     fetch("https://localhost:7183/api/Reservation", requestOptions)
       .then((response) => response.text())
       .then((data) => {
         window.location.href = "http://localhost:3000/reservations";
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 

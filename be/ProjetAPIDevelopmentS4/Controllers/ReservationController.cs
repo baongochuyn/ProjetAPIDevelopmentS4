@@ -44,12 +44,11 @@ namespace ProjetAPIDevelopmentS4.Controllers
             var volIsExist = await _volsService.CheckVolExist(newReservation.IdVol);
 
             if (volIsExist is null) {
-                await _reservationsService.CreateReservationAsync(newReservation);
+                return BadRequest("cette avion n'exist pas !");
             }
             else
             {
-                return BadRequest("cette avion n'exist pas !");
-
+                await _reservationsService.CreateReservationAsync(newReservation);
             }
             return CreatedAtAction(nameof(Get), new { id = newReservation.Id }, newReservation);
         }

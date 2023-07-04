@@ -54,7 +54,7 @@ function VolUpdateForm() {
         if (res.status === 200) {
           return res.json();
         } else if (res.status === 401) {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "http://localhost:3000/vols";
         }
         return [];
       })

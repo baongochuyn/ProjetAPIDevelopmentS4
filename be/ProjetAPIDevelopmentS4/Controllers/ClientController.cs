@@ -39,16 +39,12 @@ namespace ProjetAPIDevelopmentS4.Controllers
         public async Task<IActionResult> Post(Client newClient)
         {
             var clientIsExist = await _clientsService.CheckClientAsync(newClient.FirstName, newClient.LastName);
-            if(clientIsExist is null) {
-                await _clientsService.CreateClientAsync(newClient);
-
-            }
-            else
+            if (clientIsExist != null)
             {
-                return BadRequest("le client exist déjà !");
+                return BadRequest("Le client existe déjà !");
             }
-            
 
+            await _clientsService.CreateClientAsync(newClient);
             return CreatedAtAction(nameof(Get), new { id = newClient.Id }, newClient);
         }
 

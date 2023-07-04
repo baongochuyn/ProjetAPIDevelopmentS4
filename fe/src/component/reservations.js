@@ -91,8 +91,8 @@ function Reservations() {
       <table>
         <thead>
           <tr className="tableTR">
-            <td>N°</td>
-            <td>Vol ID</td>
+            <td>N° Reservation</td>
+            <td>N° Vol</td>
             <td>First Name</td>
             <td>Last Name</td>
             <td>Ville Depart</td>
