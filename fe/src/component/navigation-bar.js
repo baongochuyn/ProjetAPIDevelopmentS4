@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav>
       <div class="topnav">
-        <a href="/" className="nav-link">
+        <a href="/vols" className="nav-link">
           Home
         </a>
 

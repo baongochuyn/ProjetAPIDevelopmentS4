@@ -52,7 +52,6 @@ function VolForm() {
     <div>loading...</div>
   ) : (
     <div>
-      <Navbar />
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Update Vol</legend>

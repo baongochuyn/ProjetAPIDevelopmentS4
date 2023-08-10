@@ -1,4 +1,5 @@
 import "./App.css";
+import VolsList from "./component/vols-list";
 import HomePage from "./component/home-page";
 import Vols from "./component/vols";
 import FormClients from "./component/form-clients";
@@ -19,6 +20,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
+          <Route path="/volsList" Component={VolsList} />
           <Route path="/vols" Component={Vols} />
           <Route path="/vols/:id" Component={UpdateVol} />
           <Route path="/newVols" Component={FormVols} />

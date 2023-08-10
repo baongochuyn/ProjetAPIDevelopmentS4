@@ -1,3 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 100px 1fr; /* 2 rows, first row is 100px, second row takes the remaining space */
+  grid-template-columns: 1fr 1fr; /* 2 columns of equal width */
+  min-height: 100vh; /* Ensures the container takes at least the full viewport height */
+}
+
+.sidebar {
+  grid-row: 1; /* Position in the first row */
+  grid-column: 1 / span 2; /* Span both columns */
+  background-color: #f0f0f0;
+}
+
+.left-column {
+  grid-row: 2; /* Position in the second row */
+  grid-column: 1; /* Position in the first column */
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.right-column {
+  grid-row: 2; /* Position in the second row */
+  grid-column: 2; /* Position in the second column */
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
 table {
     margin-top: 5px;
     font-family: arial, sans-serif;

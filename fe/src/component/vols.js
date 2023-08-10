@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./vols.css";
 import Navbar from "./navigation-bar";
+import ListVols from "./vols-list";
+import FormVol from "./form-vols";
+
 function Vols() {
   const [vols, setVols] = useState([]);
 
@@ -86,10 +89,24 @@ function Vols() {
     <div>loading...</div>
   ) : (
     <div className="App">
-      <Navbar />
+      <div className="container">
+        <div className="sidebar"> 
+        <Navbar />
+        </div>
+        <div className="left-column">
+        <ListVols/>
+        </div>
+        <div className="right-column">
+        
+        </div>
+      </div>
+
+      {/* <Navbar />
+      <ListVols/>
       <Link to={"/newVols"}>
         <button>Add New Vol</button>
       </Link>
+      
       <table>
         <thead>
           <tr className="tableTR">
@@ -106,7 +123,7 @@ function Vols() {
           </tr>
         </thead>
         {listRender}
-      </table>
+      </table> */}
     </div>
   );
 }
