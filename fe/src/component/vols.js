@@ -4,6 +4,7 @@ import "./vols.css";
 import Navbar from "./navigation-bar";
 import ListVols from "./vols-list";
 import FormVol from "./form-vols";
+import NewReservation from "./new-reservation";
 
 function Vols() {
   const [vols, setVols] = useState([]);
@@ -94,10 +95,10 @@ function Vols() {
         <Navbar />
         </div>
         <div className="left-column">
-        <ListVols/>
+        <NewReservation></NewReservation>
         </div>
         <div className="right-column">
-        
+        <ListVols/> 
         </div>
       </div>
 

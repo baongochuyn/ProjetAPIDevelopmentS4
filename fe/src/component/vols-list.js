@@ -4,8 +4,10 @@ import Vol from "./vol-item";
 
 function VolsList(){
     const [vols, setVols] = useState([]);
+    const [volDetail, setVolDetail] = useState({});
     const authorization = localStorage.getItem("Authorization");
-
+    
+               
     useEffect(() => {
         fetch("https://localhost:7183/api/Vol", {
           method: "GET",
@@ -26,6 +28,11 @@ function VolsList(){
             setVols(data);
           });
       }, []);
+
+      const formVolHandler = (selectedVol) =>{
+        console.log("ok");
+        setVolDetail = selectedVol;
+      }
     
     return (<div>
         {vols.map((item) => (
@@ -36,6 +43,7 @@ function VolsList(){
             HeureArrivee={item.HeureArrivee}
             HeureDepart={item.HeureDepart}
             IdentifiantAvion={item.IdentifiantAvion}
+            selectedVol= {item}
             />
         ))}
     </div>)

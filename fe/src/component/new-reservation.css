@@ -1,0 +1,57 @@
+/* CSS for the form container */
+.form-container {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: block;
+    position: relative;
+}
+
+/* CSS for form groups */
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+form {
+    left: 38%;
+    top: 220%;
+    margin-left: -25%;
+    position: absolute;
+    margin-top: -20%;
+    width: 70%;
+}
+/* CSS for labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* CSS for input fields */
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="number"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* CSS for submit button */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

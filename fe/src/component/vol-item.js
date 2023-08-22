@@ -22,7 +22,11 @@ function VolItem(props){
     };
     const formattedHeureDepart = dateObjectDepart.toLocaleString('en-US', options);
     const formattedHeureArrivee = dateObjectDepart.toLocaleString('en-US', options);
-    return  <div class="flight-list">
+
+    const formVolHandler = () =>{
+        console.log("ok");
+      }
+    return  <div class="flight-list" onClick = {formVolHandler} >
     <div class="flight-info">
         <p><strong>Departure City:</strong> {props.VilleDepart}</p>
         <p><strong>Departure Time:</strong> {formattedHeureDepart}</p>
