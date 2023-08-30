@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./form.css";
 import Navbar from "./navigation-bar";
-
+import "./form.css"
 function FormReservation() {
   const [clients, setClients] = useState([]);
   const [vols, setVols] = useState([]);

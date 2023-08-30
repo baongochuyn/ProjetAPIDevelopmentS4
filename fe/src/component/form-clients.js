@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./form.css";
 import { Link } from "react-router-dom";
 import Navbar from "./navigation-bar";
+import "./form-clients.css";
 
 function Clients() {
   const [firstName, setFirstName] = useState("");
@@ -82,7 +82,8 @@ function Clients() {
   ) : (
     <div>
       <Navbar />
-      <form>
+      <div className="form-container">
+      <form id="myForm">
         <fieldset>
           <legend>Nouveau client</legend>
           <div>
@@ -142,6 +143,7 @@ function Clients() {
           </div>
         </fieldset>
       </form>
+      </div>
       <div>
         <Link to="/Clients">
           <button>Retourner</button>

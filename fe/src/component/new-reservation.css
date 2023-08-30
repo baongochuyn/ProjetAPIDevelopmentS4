@@ -1,5 +1,5 @@
 /* CSS for the form container */
-.form-container {
+.form-detail {
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -14,7 +14,7 @@
     margin-bottom: 15px;
     width: 100%;
 }
-form {
+#new-reservation-form {
     left: 38%;
     top: 220%;
     margin-left: -25%;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Vol from "./vol-item";
 
+
 function VolsList(){
     const [vols, setVols] = useState([]);
     const [volDetail, setVolDetail] = useState({});
@@ -43,6 +44,7 @@ function VolsList(){
             HeureArrivee={item.HeureArrivee}
             HeureDepart={item.HeureDepart}
             IdentifiantAvion={item.IdentifiantAvion}
+            NombreDePlaces= {item.NombreDePlaces}
             selectedVol= {item}
             />
         ))}
